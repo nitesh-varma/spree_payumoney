@@ -1,0 +1,40 @@
+<%= form_tag(@base_url, :method=>:post) do %>
+ <input type="hidden" name="key" value="<%= @merchant_key %>" />
+      <input type="hidden" name="hash" value="<%= @hash %>"/>
+      <input type="hidden" name="txnid" value="<%= @txnid %>" />
+      <input type="hidden" name="udf2" value="<%= @txnid %>" />
+          <input type="hidden" name="service_provider" value="payu_paisa" />
+      <table>
+        <tr>
+          <td>Amount: </td>
+          <td><input name="amount" value="<%= @amount %>" readonly/></td>
+          <td>First Name: </td>
+          <td><input name="firstname" id="firstname" value="<%= @firstname %>"  readonly/></td>
+        </tr>
+        <tr>
+          <td>Email: </td>
+          <td><input name="email" id="email" value="<%= @email %>" readonly /></td>
+          <td>Phone: </td>
+          <td><input name="phone" value="<%= @phone %>" readonly/></td>
+        </tr>
+        <tr>
+          <td>Product Info: </td>
+          <td colspan="3"><input name="productinfo" value="productinfo" size="64" readonly /></td>
+        </tr>
+        <tr>
+          <td>Success URI: </td>
+          <td colspan="3"><input name="surl" value="http://192.168.1.218:3000/payupaisa/confirm?payment_method_id=7&authencity_token=xbOc5kBhXAOAko0ja6TGjyD4sbC5MtBbI7PEd48uiRg=" size="64" readonly /></td>
+        </tr>
+        <tr>
+          <td>Failure URI: </td>
+          <td colspan="3"><input name="furl" value="http://192.168.1.218:3000/payupaisa/cancel?authencity_token=xbOc5kBhXAOAko0ja6TGjyD4sbC5MtBbI7PEd48uiRg=" size="64" readonly /></td>
+        </tr>
+      </table>
+     <%= submit_tag 'Proceed to payment' %> 
+<% end %>
+<script>
+ $(document).ready(function() {
+
+     // alert("hello"); 
+});
+</script>
